@@ -1,19 +1,26 @@
 package tictactoe;
 
-
+import java.util.Scanner;
 
 public class TicTacToeGame {
 
-	static char[][] board = new char[3][3];
+	static char[] board = new char[10];
 	
-	public static void UC1() {
+	/**
+	 * @description
+	 * 
+	 */
+	public static void UC1_board() {
 		System.out.println("TicTacToe game board");
 		for(int i=1; i<=board.length; i++) {
-			for(int j=1; j<=board[i].length; j++) {
-				board[i][j]= '-';
+				board[i]= ' ';
 			}
 		}
+		/**
+		 * @taking input from user 
+		 */
 		
-	}
+		
+	
 	
 }
