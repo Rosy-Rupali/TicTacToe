@@ -10,17 +10,17 @@ public class TicTacToeGame {
 	 * @description
 	 * 
 	 */
-	public static void UC1_board() {
+	static void createBoard() {
 		System.out.println("TicTacToe game board");
-		for(int i=1; i<=board.length; i++) {
+		for(int i=1; i<board.length; i++) {
 				board[i]= ' ';
 			}
 		}
-		/**
-		 * @taking input from user 
-		 */
+public static void main(String args[]) {
 		
+		createBoard();
+		
+	}
+}		
 		
 	
-	
-}
