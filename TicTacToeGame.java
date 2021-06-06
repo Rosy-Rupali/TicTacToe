@@ -54,10 +54,29 @@ public class TicTacToeGame {
 	/**
 	 * user is going to make a move to the desired location
 	 */
-	private static void checkMove() {
+	private static void madeMove() {
 		Scanner sc = new Scanner(System.in);
+		while(true) {
 		System.out.println("Enter your slot number from 1 to 9: ");
 		int move = sc.nextInt();
+		if(!(move > 0) && (move < 10)) {
+		System.out.println("Invalid move, Re-enter the slot number:");
+		continue;
+		}else if(board[move] == ' '){
+			board[move] = turn;
+			showBoard();
+			if(turn == 'X') {
+				turn = 'O';
+			}else {
+				turn = 'X';
+			}
+			}
+		else {
+			System.out.println("Re-enter the slot number: ");
+			showBoard();
+			continue;
+		}
+		}
 	}
 
 	public static void main(String args[]) {
@@ -65,7 +84,7 @@ public class TicTacToeGame {
 		createBoard();
 		chooseLetter();
 		showBoard();
-		checkMove();
+		madeMove();
 
 	}
 }
