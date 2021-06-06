@@ -77,6 +77,7 @@ public class TicTacToeGame {
 			}
 		}
 	}
+
 	/**
 	 * Tossing the coin to check who plays first
 	 */
@@ -85,13 +86,65 @@ public class TicTacToeGame {
 		return random.nextBoolean();
 	}
 
+	/**
+	 * Checking after move the winner or the tie or change in turn
+	 */
+	private static String checkWiningCombinations() {
+		for (int a = 1; a < 9; a++) {
+			StringBuilder sb = new StringBuilder();
+			String line;
+
+			switch (a) {
+			case 1:
+				line = Character.toString(board[1] + board[2] + board[3]);
+				break;
+			case 2:
+				line = Character.toString(board[4] + board[5] + board[6]);
+				break;
+			case 3:
+				line = Character.toString(board[7] + board[8] + board[9]);
+				break;
+			case 4:
+				line = Character.toString(board[1] + board[4] + board[7]);
+				break;
+			case 5:
+				line = Character.toString(board[2] + board[5] + board[8]);
+				break;
+			case 6:
+				line = Character.toString(board[3] + board[6] + board[9]);
+				break;
+			case 7:
+				line = Character.toString(board[1] + board[5] + board[9]);
+				break;
+			case 8:
+				line = Character.toString(board[3] + board[5] + board[7]);
+				System.out.println("String is: " + line);
+				break;
+
+			}
+			if (sb.equals("XXX")) {
+				return "Computer";
+			} else if (sb.equals("OOO")) {
+				return "Player";
+			}
+		}
+		for (int i = 1; i < 10; i++) {
+			if (board[i] == ' ') {
+				break;
+			} else if (i == 9)
+				return "tie";
+
+		}
+		System.out.println(turn + "turn; enter a slot number to place the " + turn + " in: ");
+		return null;
+
+	}
+
 	public static void main(String args[]) {
 
 		createBoard();
 		chooseLetter();
 		showBoard();
 		madeMove();
-		
-
 	}
 }
