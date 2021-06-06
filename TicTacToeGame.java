@@ -52,7 +52,7 @@ public class TicTacToeGame {
 	}
 
 	/**
-	 * user is going to make a move to the desired location
+	 * user has already made a move
 	 */
 	private static void madeMove() {
 		Scanner sc = new Scanner(System.in);
