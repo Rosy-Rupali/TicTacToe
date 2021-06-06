@@ -56,27 +56,33 @@ public class TicTacToeGame {
 	 */
 	private static void madeMove() {
 		Scanner sc = new Scanner(System.in);
-		while(true) {
-		System.out.println("Enter your slot number from 1 to 9: ");
-		int move = sc.nextInt();
-		if(!(move > 0) && (move < 10)) {
-		System.out.println("Invalid move, Re-enter the slot number:");
-		continue;
-		}else if(board[move] == ' '){
-			board[move] = turn;
-			showBoard();
-			if(turn == 'X') {
-				turn = 'O';
-			}else {
-				turn = 'X';
+		while (true) {
+			System.out.println("Enter your slot number from 1 to 9: ");
+			int move = sc.nextInt();
+			if (!(move > 0) && (move < 10)) {
+				System.out.println("Invalid move, Re-enter the slot number:");
+				continue;
+			} else if (board[move] == ' ') {
+				board[move] = turn;
+				showBoard();
+				if (turn == 'X') {
+					turn = 'O';
+				} else {
+					turn = 'X';
+				}
+			} else {
+				System.out.println("Re-enter the slot number: ");
+				showBoard();
+				continue;
 			}
-			}
-		else {
-			System.out.println("Re-enter the slot number: ");
-			showBoard();
-			continue;
 		}
-		}
+	}
+	/**
+	 * Tossing the coin to check who plays first
+	 */
+	private static boolean tossToStartGame() {
+		Random random = new Random();
+		return random.nextBoolean();
 	}
 
 	public static void main(String args[]) {
@@ -85,6 +91,7 @@ public class TicTacToeGame {
 		chooseLetter();
 		showBoard();
 		madeMove();
+		
 
 	}
 }
