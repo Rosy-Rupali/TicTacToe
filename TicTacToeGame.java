@@ -14,7 +14,7 @@ public class TicTacToeGame {
 	 */
 	private static void createBoard() {
 		System.out.println("TicTacToe game board");
-		for (int i = 1; i < board.length; i++) {
+		for (int i = 1; i < 10; i++) {
 			board[i] = ' ';
 		}
 	}
@@ -42,21 +42,27 @@ public class TicTacToeGame {
 	 * Displaying the tictactoe game board
 	 */
 	private static void showBoard() {
-		for (int i = 1; i < board.length; i++) {
+		for (int i = 1; i < 10; i++) {
 			board[i] = (char) i;
 		}
-		System.out.println("_" + board[1] + "_|_" + board[2] + "_|_" + board[3] + "_");
-		System.out.println("_" + board[4] + "_|_" + board[5] + "_|_" + board[6] + "_");
-		System.out.println(" " + board[7] + " | " + board[8] + " | " + board[9] + " ");
+		System.out.println("| " + board[1] + "_|_" + board[2] + "_|_" + board[3] + " |");
+		System.out.println("| " + board[4] + "_|_" + board[5] + "_|_" + board[6] + " |");
+		System.out.println("| " + board[7] + " | " + board[8] + " | " + board[9] + " |");
 
 	}
 
 	/**
 	 * user has already made a move
 	 */
-	private static void madeMove() {
+	private static void madeMove(boolean firstPlayer) {
 		Scanner sc = new Scanner(System.in);
-		while (true) {
+		String winner = null;
+		if (firstPlayer == true) {
+			turn = 'X';
+		} else {
+			turn = 'O';
+		}
+		while (winner == null) {
 			System.out.println("Enter your slot number from 1 to 9: ");
 			int move = sc.nextInt();
 			if (!(move > 0) && (move < 10)) {
@@ -70,11 +76,19 @@ public class TicTacToeGame {
 				} else {
 					turn = 'X';
 				}
+				winner = checkWiningCombinations();
+
 			} else {
-				System.out.println("Re-enter the slot number: ");
+				System.out.println("Slot is taken already; Re-enter the slot number: ");
 				showBoard();
 				continue;
 			}
+		}
+
+		if (winner.equalsIgnoreCase("tie")) {
+			System.out.println("It's a tie| Thanks for playing");
+		} else {
+			System.out.println("Congratulations! " + winner + " has won.");
 		}
 	}
 
@@ -140,15 +154,20 @@ public class TicTacToeGame {
 
 	}
 	
+	/**
+	 * checking to movve for win or tie or change the turn
+	 */
 	private static void computerCheckToWin() {
 		board[turn] = 'X';
 	}
+
 
 	public static void main(String args[]) {
 
 		createBoard();
 		chooseLetter();
 		showBoard();
-		madeMove();
+		madeMove(true);
 	}
 }
+
