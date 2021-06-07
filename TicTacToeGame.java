@@ -7,12 +7,12 @@ public class TicTacToeGame {
 	static char[] board = new char[10];
 	
 	/**
-	 * @description
+	 * Description of the board
 	 * 
 	 */
-	static void createBoard() {
+	public static void createBoard() {
 		System.out.println("TicTacToe game board");
-		for(int i=1; i<board.length; i++) {
+		for(int i=1; i<10; i++) {
 				board[i]= ' ';
 			}
 		}
