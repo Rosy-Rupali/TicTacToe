@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class TicTacToeGame {
 
 	static char[] board = new char[10];
-	
-	
+	static char turn;
+
 	/**
 	 * Creating the game board
 	 * 
@@ -18,30 +18,30 @@ public class TicTacToeGame {
 			board[i] = ' ';
 		}
 	}
-	
+
 	/**
 	 * taking input from user to choose the turn
 	 */
 	private static void chooseLetter() {
-		Scanner sc=new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the character X or O to choose the turn:");
 		char turn = sc.next().charAt(0);
-		if(turn == 'X' || turn == 'x') {
+		if (turn == 'X' || turn == 'x') {
 			System.out.println("player's turn to play the game");
-			 turn = 'O';
-		}else if(turn == 'O' || turn == 'o') {
+			turn = 'O';
+		} else if (turn == 'O' || turn == 'o') {
 			System.out.println("computer's turn to play the game");
-			 turn = 'X';
-		}else{
+			turn = 'X';
+		} else {
 			System.out.println("Invalid input");
 		}
-			
+
 	}
+
 	/**
 	 * Displaying the tictactoe game board
 	 */
 	public static void showBoard() {
-		
 		System.out.println("| " + board[1] + " | " + board[2] + " | " + board[3] + " |");
 		System.out.println("|-----------|");
 		System.out.println("| " + board[4] + " | " + board[5] + " | " + board[6] + " |");
@@ -49,17 +49,22 @@ public class TicTacToeGame {
 		System.out.println("| " + board[7] + " | " + board[8] + " | " + board[9] + " |");
 		
 	}
-	
-	
-public static void main(String args[]) {
-		
+
+	/**
+	 * user is going to make a move to the desired location
+	 */
+	public static void checkMove() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter your slot number from 1 to 9: ");
+		int userInput = sc.nextInt();
+	}
+
+	public static void main(String args[]) {
+
 		createBoard();
 		chooseLetter();
 		showBoard();
-		
-		
-		
+		checkMove();
+
 	}
-}		
-		
-	
+}
