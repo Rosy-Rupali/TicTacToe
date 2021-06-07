@@ -45,52 +45,18 @@ public class TicTacToeGame {
 	 * Displaying the tictactoe game board
 	 */
 	public static void showBoard() {
-<<<<<<< HEAD
-		System.out.println("| " + board[1] + " | " + board[2] + " | " + board[3] + " |");
-		System.out.println("|-----------|");
-		System.out.println("| " + board[4] + " | " + board[5] + " | " + board[6] + " |");
-		System.out.println("|-----------|");
-		System.out.println("| " + board[7] + " | " + board[8] + " | " + board[9] + " |");
-		
-	}
-=======
 	
 		System.out.println("| " + board[1] + " | " + board[2] + " | " + board[3] + " |");
 		System.out.println("|------------|");
 		System.out.println("| " + board[4] + " | " + board[5] + " | " + board[6] + " |");
 		System.out.println("|------------|");
 		System.out.println("| " + board[7] + " | " + board[8] + " | " + board[9] + " |");
->>>>>>> UC12_Till_Game_Over
 
-	/**
-	 * user is going to make a move to the desired location
-	 */
-	public static void checkMove() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter your slot number from 1 to 9: ");
-		int userInput = sc.nextInt();
 	}
 
 	/**
-	 * checking for the free spaces in the board
+	 * user has already made a move
 	 */
-<<<<<<< HEAD
-	public static void madeMove() {
-		Scanner sc = new Scanner(System.in);
-		while(true) {
-		System.out.println("Enter your slot number from 1 to 9: ");
-		int userInput = sc.nextInt();
-		if(!(userInput > 0) && (userInput < 10)) {
-		System.out.println("Invalid move, Re-enter the slot number:");
-		continue;
-		}else if(board[userInput] == ' '){
-			board[userInput] = turn;
-			showBoard();
-			if(turn == 'X') {
-				turn = 'O';
-			}else {
-				turn = 'X';
-=======
 	public static void madeMove(boolean firstPlayer) {
 		Scanner sc = new Scanner(System.in);
 		if (firstPlayer == true) {
@@ -104,7 +70,6 @@ public class TicTacToeGame {
 			else {
 				Random random = new Random();
 				userInput=random.nextInt(9)+1;
->>>>>>> UC12_Till_Game_Over
 			}
 			winnerCondition();
 			if(turn == 'O') 
@@ -200,8 +165,6 @@ public class TicTacToeGame {
 		return null;
 
 	}
-<<<<<<< HEAD
-=======
 
 	/**
 	 * checking for the win move
@@ -364,19 +327,12 @@ public class TicTacToeGame {
 		}
 	}
 	
->>>>>>> UC12_Till_Game_Over
 	public static void main(String args[]) {
 
 		while(true) {
 		createBoard();
 		chooseLetter();
 		showBoard();
-<<<<<<< HEAD
-		madeMove()
-
-	}
-}
-=======
 		Boolean firstPlayer = tossToStartGame();
 		madeMove(firstPlayer);
 		}
@@ -384,4 +340,3 @@ public class TicTacToeGame {
 	}
 }
 
->>>>>>> UC12_Till_Game_Over
