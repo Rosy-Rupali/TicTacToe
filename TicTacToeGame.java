@@ -7,6 +7,8 @@ public class TicTacToeGame {
 
 	static char[] board = new char[10];
 	static char turn;
+	static String winner = null;
+	static int userInput;
 
 	/**
 	 * Creating the game board
@@ -56,7 +58,6 @@ public class TicTacToeGame {
 	 */
 	private static void madeMove(boolean firstPlayer) {
 		Scanner sc = new Scanner(System.in);
-		String winner = null;
 		if (firstPlayer == true) {
 			turn = 'X';
 		} else {
@@ -285,6 +286,29 @@ public class TicTacToeGame {
 		return userInput;
 	}
 
+	/**
+	 * If no one is winning then taking corner slots
+	 */
+	private static void winnerCondition() {
+		if (winner == null) {
+			if (board[1] == ' ') {
+				userInput = 1;
+				return;
+			} else if (board[3] == ' ') {
+				userInput = 3;
+				return;
+			} else if (board[7] == ' ') {
+				userInput = 7;
+				return;
+			} else if (board[9] == ' ') {
+				userInput = 9;
+				return;
+			}
+		} else if (winner == "Player") {
+			computerCheckToWin();
+			winner = null;
+		}
+	}
 	public static void main(String args[]) {
 
 		createBoard();
