@@ -288,6 +288,7 @@ public class TicTacToeGame {
 
 	/**
 	 * If no one is winning then taking corner slots
+	 * If corner slots are not available then taking the center slot
 	 */
 	private static void winnerCondition() {
 		if (winner == null) {
@@ -304,7 +305,12 @@ public class TicTacToeGame {
 				userInput = 9;
 				return;
 			}
-		} else if (winner == "Player") {
+			else if(board[5] == ' ') {
+					 userInput = 5;
+					 return;
+				 }
+		} 
+		else if (winner == "Player") {
 			computerCheckToWin();
 			winner = null;
 		}
