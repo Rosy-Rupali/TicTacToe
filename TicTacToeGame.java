@@ -40,13 +40,13 @@ public class TicTacToeGame {
 	/**
 	 * Displaying the tictactoe game board
 	 */
-	private static void showBoard() {
-		for(int i=1; i<board.length; i++) {
-			board[i] = (char) i;
-		}
-		System.out.println("_" + board[1] + "_|_" + board[2] + "_|_" + board[3] + "_");
-		System.out.println("_" + board[4] + "_|_" + board[5] + "_|_" + board[6] + "_");
-		System.out.println(" " + board[7] + " | " + board[8] + " | " + board[9] + " ");
+	public static void showBoard() {
+		
+		System.out.println("| " + board[1] + " | " + board[2] + " | " + board[3] + " |");
+		System.out.println("|-----------|");
+		System.out.println("| " + board[4] + " | " + board[5] + " | " + board[6] + " |");
+		System.out.println("|-----------|");
+		System.out.println("| " + board[7] + " | " + board[8] + " | " + board[9] + " |");
 		
 	}
 	
