@@ -41,29 +41,37 @@ public class TicTacToeGame {
 	/**
 	 * Displaying the tictactoe game board
 	 */
-	private static void showBoard() {
-		for (int i = 1; i < board.length; i++) {
-			board[i] = (char) i;
-		}
-		System.out.println("_" + board[1] + "_|_" + board[2] + "_|_" + board[3] + "_");
-		System.out.println("_" + board[4] + "_|_" + board[5] + "_|_" + board[6] + "_");
-		System.out.println(" " + board[7] + " | " + board[8] + " | " + board[9] + " ");
-
+	public static void showBoard() {
+		System.out.println("| " + board[1] + " | " + board[2] + " | " + board[3] + " |");
+		System.out.println("|-----------|");
+		System.out.println("| " + board[4] + " | " + board[5] + " | " + board[6] + " |");
+		System.out.println("|-----------|");
+		System.out.println("| " + board[7] + " | " + board[8] + " | " + board[9] + " |");
+		
 	}
 
 	/**
-	 * user has already made a move
+	 * user is going to make a move to the desired location
 	 */
-	private static void madeMove() {
+	public static void checkMove() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter your slot number from 1 to 9: ");
+		int userInput = sc.nextInt();
+	}
+
+	/**
+	 * checking for the free spaces in the board
+	 */
+	public static void madeMove() {
 		Scanner sc = new Scanner(System.in);
 		while(true) {
 		System.out.println("Enter your slot number from 1 to 9: ");
-		int move = sc.nextInt();
-		if(!(move > 0) && (move < 10)) {
+		int userInput = sc.nextInt();
+		if(!(userInput > 0) && (userInput < 10)) {
 		System.out.println("Invalid move, Re-enter the slot number:");
 		continue;
-		}else if(board[move] == ' '){
-			board[move] = turn;
+		}else if(board[userInput] == ' '){
+			board[userInput] = turn;
 			showBoard();
 			if(turn == 'X') {
 				turn = 'O';
@@ -78,13 +86,12 @@ public class TicTacToeGame {
 		}
 		}
 	}
-
 	public static void main(String args[]) {
 
 		createBoard();
 		chooseLetter();
 		showBoard();
-		madeMove();
+		madeMove()
 
 	}
 }
